@@ -1,0 +1,12 @@
+CREATE TABLE [dbo].[Loans]
+(
+    [Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+    [BookId] UNIQUEIDENTIFIER NOT NULL,
+    [MemberId] UNIQUEIDENTIFIER NOT NULL,
+    [LoanDate] DATETIMEOFFSET NOT NULL,
+    [DueDate] DATETIMEOFFSET NOT NULL,
+    [ReturnDate] DATETIMEOFFSET NULL,
+    [PenaltyAmount] DECIMAL(5,2) NOT NULL DEFAULT 0,
+    CONSTRAINT [FK_Loans_Books] FOREIGN KEY ([BookId]) REFERENCES [dbo].[Books]([Id]),
+    CONSTRAINT [FK_Loans_Members] FOREIGN KEY ([MemberId]) REFERENCES [dbo].[Members]([Id])
+);

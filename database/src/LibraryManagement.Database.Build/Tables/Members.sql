@@ -1,0 +1,6 @@
+CREATE TABLE [dbo].[Members]
+(
+    [Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+    [Name] NVARCHAR(200) NOT NULL,
+    [Profile] NVARCHAR(20) NOT NULL
+);
