@@ -31,4 +31,11 @@ dotnet test tests/LibraryManagement.DomainUnitTests
 dotnet test tests/LibraryManagement.IntegrationTests
 ```
 
-Les tests d'intégration nécessitent Docker (Testcontainers démarre un SQL Server réel).
+Les tests d'intégration nécessitent Docker (Testcontainers démarre un SQL Server réel) et que le DACPAC soit construit au moins une fois :
+
+```bash
+cd database/src/LibraryManagement.Database.Build
+dotnet build -c Release
+```
+
+(ce projet a son propre SDK .NET 9 via `global.json`, contournant une incompatibilité entre `Microsoft.Build.Sql` et .NET 10 — il faut lancer la commande depuis ce dossier).
