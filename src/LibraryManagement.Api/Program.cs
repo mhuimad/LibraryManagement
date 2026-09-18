@@ -19,8 +19,7 @@ builder.Services.AddValidatorsFromAssembly(typeof(CreateBookCommand).Assembly);
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
 builder.Services.AddTransient(typeof(IPipelineBehavior<,>), typeof(TransactionBehavior<,>));
 
-var connectionString = builder.Configuration.GetConnectionString("LibraryManagement")!;
-builder.Services.AddScoped(_ => new UnitOfWork(connectionString));
+builder.Services.AddScoped(sp => new UnitOfWork(sp.GetRequiredService<IConfiguration>().GetConnectionString("LibraryManagement")!));
 builder.Services.AddScoped<IUnitOfWork>(sp => sp.GetRequiredService<UnitOfWork>());
 builder.Services.AddScoped<IDbConnectionAccessor>(sp => sp.GetRequiredService<UnitOfWork>());
 builder.Services.AddScoped<IBookRepository, BookRepository>();

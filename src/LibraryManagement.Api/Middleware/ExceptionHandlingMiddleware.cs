@@ -52,8 +52,7 @@ public sealed class ExceptionHandlingMiddleware
     private static Task WriteProblemAsync(HttpContext context, int statusCode, string detail)
     {
         context.Response.StatusCode = statusCode;
-        context.Response.ContentType = "application/problem+json";
         var problem = new ProblemDetails { Status = statusCode, Detail = detail };
-        return context.Response.WriteAsJsonAsync(problem);
+        return context.Response.WriteAsJsonAsync(problem, options: null, contentType: "application/problem+json");
     }
 }

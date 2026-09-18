@@ -55,3 +55,6 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Reqnroll/SpecFlow generated code-behind
+*.feature.cs
