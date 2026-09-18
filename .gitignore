@@ -58,3 +58,6 @@ nunit-*.xml
 
 # Reqnroll/SpecFlow generated code-behind
 *.feature.cs
+
+# Visual Studio cache
+.vs/

@@ -22,7 +22,7 @@ Prérequis : Docker.
 docker compose up --build
 ```
 
-L'API est disponible sur `http://localhost:8080` (Swagger/OpenAPI en dev via `/openapi/v1.json`).
+L'API est disponible sur `http://localhost:8080`, Swagger UI sur `http://localhost:8080/swagger`.
 
 ## Tests
 
